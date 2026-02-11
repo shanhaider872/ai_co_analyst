@@ -8,16 +8,19 @@ export default defineConfig(({ mode }) => {
       server: {
         port: 3000,
         host: '0.0.0.0',
-        allowedHosts: [
-          'localhost',
-          '127.0.0.1',
-          '0.0.0.0',
-          'undepreciated-unentertaining-cheryll.ngrok-free.dev',
-          '.ngrok-free.dev',          
-          '.ngrok.io',                
-        ],
+        // allowedHosts: [
+        //   'localhost',
+        //   '127.0.0.1',
+        //   '0.0.0.0',
+        //   'undepreciated-unentertaining-cheryll.ngrok-free.dev',
+        //   '.ngrok-free.dev',          
+        //   '.ngrok.io',                
+        // ],
       },
       plugins: [react()],
+      build: {
+        chunkSizeWarningLimit: 2000
+      },
       define: {
         'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY),
         'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY)
