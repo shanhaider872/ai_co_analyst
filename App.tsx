@@ -33,7 +33,7 @@ import {
 const CHART_COLORS = ['#6366f1', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6', '#ec4899', '#0ea5e9', '#f43f5e'];
 
 // Feature flag: show or hide the Google OAuth button in the UI
-const SHOW_GOOGLE_BUTTON = false;
+const SHOW_GOOGLE_BUTTON = true;
 
 export default function App() {
   const [state, setState] = useState<AppState>(AppState.AUTH);
@@ -48,6 +48,7 @@ export default function App() {
   const [authLoading, setAuthLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   const [authError, setAuthError] = useState<string | null>(null);
+  const [authInfo, setAuthInfo] = useState<string | null>(null);
 
   // Advanced Chart Builder State
   const [chartType, setChartType] = useState<ChartType>('bar');
@@ -116,7 +117,11 @@ export default function App() {
           setAuthLoading(false);
           return;
         }
-        // User created successfully, will auto-login via onAuthStateChange
+        // User created successfully. Supabase will send a confirmation email when email confirmation is enabled.
+        // Show an informational message prompting the user to confirm their email before signing in.
+        setAuthInfo('Account created. Please check your email to confirm your address before signing in.');
+        setAuthError(null);
+        setAuthMode('login');
         setAuthLoading(false);
       } else {
         const { user: authUser, session, error } = await signInWithEmail(email, password);
@@ -644,6 +649,7 @@ export default function App() {
                     <input required name="password" type="password" className="w-full px-4 py-3.5 rounded-2xl border-2 border-slate-100 focus:border-indigo-600 outline-none transition-colors" placeholder="••••••••" />
                   </div>
                   {authError && <div className="bg-red-50 text-red-600 text-xs p-3 rounded-xl font-bold flex items-center gap-2">{authError}</div>}
+                  {authInfo && <div className="bg-blue-50 text-blue-700 text-xs p-3 rounded-xl font-bold flex items-center gap-2">{authInfo}</div>}
                   <button type="submit" disabled={authLoading} className="w-full bg-indigo-600 text-white font-black py-4 rounded-2xl hover:bg-indigo-700 shadow-xl transition-all disabled:opacity-50 mt-2">{authLoading ? 'Authenticating...' : authMode === 'login' ? 'Sign In' : 'Create Account'}</button>
                 </form>
                 <div className="text-center pt-2"><button onClick={() => { setAuthMode(authMode === 'login' ? 'signup' : 'login'); setAuthError(null); }} className="text-sm font-bold text-slate-500 hover:text-indigo-600">{authMode === 'login' ? "New here? Create an account" : "Already have an account? Sign in"}</button></div>
