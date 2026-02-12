@@ -371,7 +371,7 @@ DEPLOYMENT: ✅ READY
 
 ## 🎉 Summary
 
-Your AI Co-Analyst app has been successfully upgraded with:
+Your Aida app has been successfully upgraded with:
 
 ✨ **Real Supabase backend** with PostgreSQL
 ✨ **Google OAuth integration** (real, not fake)

@@ -287,7 +287,7 @@ deleteDataset(datasetId)                    // Delete dataset
 
 ## ✨ Summary
 
-Your AI Co-Analyst MVP now has:
+Your Aida MVP now has:
 
 ✅ **Enterprise-grade authentication**
 ✅ **Real Google OAuth integration**

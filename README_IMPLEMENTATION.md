@@ -418,7 +418,7 @@ Everything is ready:
 
 ## 🚀 You're Ready!
 
-Your AI Co-Analyst app now has:
+Your Aida app now has:
 
 ```
 🔐 Enterprise-grade security

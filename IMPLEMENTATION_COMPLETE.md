@@ -481,7 +481,7 @@ A: Yes, create a migration script to move localStorage data to Supabase.
 
 ## 🎉 Summary
 
-Your AI Co-Analyst app is now **production-ready** with:
+Your Aida app is now **production-ready** with:
 
 ✨ **Enterprise-grade authentication**
 ✨ **Real Google OAuth**
