@@ -110,7 +110,7 @@ export const Layout: React.FC<LayoutProps> = ({ children, currentState, onReset,
       <footer className="bg-white border-t border-slate-200 py-6 no-print">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <p className="text-slate-500 text-sm">
-            &copy; {new Date().getFullYear()} Aida MVP • Fully explainable, fully editable.
+            &copy; {new Date().getFullYear()} Aida • Fully explainable, fully editable.
           </p>
         </div>
       </footer>
